@@ -30,3 +30,44 @@ This repository was developed for Case Western Reserve University's ECSE 399 sen
 **flask_app.py:** contains Python code that made the Flask application with graphs for each type of data - soil moisture content, temperature, humidity, and rainfall - and rendered different web pages based on how much time the user wanted to see, day, week, month, or all time
 
 **templates/home.html:** contains the HTML code used to create the web pages with Chart.js code used to make the graphs for each data collected
+
+
+## 2. Software Prerequisites:
+
+
+**For the STM32 code:**
+
+LMIC library
+
+CayenneLPP library
+
+DHT library
+
+**For the Flask code:**
+
+Flask
+
+json
+
+datetime
+
+boto3
+
+chart.js
+
+**For the AWS Lambda function: **
+
+boto3
+
+json
+
+**Other software configurations: **
+
+For the device to communicate with the Helium console, an account and access keys for the Helium Console is needed and the access keys need to be directly added to the device_code.ino file in little endian and big endian format as directed.
+
+For the data to be sent from the Helium console to the Amazon Web Servies MQTT Client, an AWS integration needs to be added to the Helium console. An AWS account must be created and also an IAM user with the correct permissions must be made so that the access keys from the IAM user can be added to the Helium Console / AWS integration.
+
+The AWS Lambda function must be set to trigger from the MQTT Client receiving messages using an IoT Core Rule.
+
+The AWS DynamoDB Table must be given permissions to allow the Lambda function to add data to it.
+
