@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <style>
+      body {
+        background-image: linear-gradient(#46e356, #876c23);
+      }
+      h2, p {
+        font-family: Verdana;
+        color: #525252;
+      }
+      .priority {
+        width: 800px;
+        background-color: white;
+        border-radius: 10px;
+        border: 5px outset #edeef0;        
+        margin: auto;
+      }
+      #buttons {
+        margin: auto;
+      }
+      .button {
+        background-color: #07c9fa;
+        color: white;
+        border: 5px outset #04b0db;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: bold;
+        display: inline-block;
+        padding-left: 65px;
+        padding-right: 65px;
+        margin: auto;
+      }
+      .button:hover {
+        background-color: #04b0db;
+        border-color: #0297bd;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      p {
+        text-align: center;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="title" class="priority">
+      <h2 style="text-align: center">Soil Moisture Profile</h2>
+      <div id="buttons">
+        <div class="button">
+          <a href="http://127.0.0.1:5000/day"><p>Past Day</p></a>
+        </div>
+        <div class="button">
+          <a href="http://127.0.0.1:5000/week"><p>Past Week</p></a>
+        </div>
+        <div class="button">
+          <a href="http://127.0.0.1:5000/month"><p>Past Month</p></a>
+        </div>
+        <div class="button">
+          <a href="http://127.0.0.1:5000/"><p>All</p></a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="priority"><canvas id="soilGraph" width="60%" height="17%"></canvas></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"> 
+    </script>
+    <script>
+      var canvas = document.getElementById("soilGraph");
+      var ctx = canvas.getContext("2d");
+      var soilGraph = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: {{ isoData|tojson }},
+          datasets: [{
+            label: 'Soil Moisture Content',
+            data: {{ soilData }},
+            borderColor: 'rgb(90,90,90)',
+            pointBackgroundColor: 'rgb(90,90,90)',
+          }]
+        }
+      }); 
+    </script>
+    <div class="priority"><canvas id="tempGraph" width="100%" height="17%"></canvas></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"> 
+    </script>
+    <script>
+      var canvas = document.getElementById("tempGraph");
+      var ctx = canvas.getContext("2d");
+      var tempGraph = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: {{ isoData|tojson }},
+          datasets: [{
+            label: 'Temperature',
+            data: {{ tempData }},
+            borderColor: 'rgb(90,90,90)',
+            pointBackgroundColor: 'rgb(90,90,90)',
+          }]
+        }
+      }); 
+    </script>
+    <div class="priority"><canvas id="humGraph" width="100%" height="17%"></canvas></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"> 
+    </script>
+    <script>
+      var canvas = document.getElementById("humGraph");
+      var ctx = canvas.getContext("2d");
+      var humGraph = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: {{ isoData|tojson }},
+          datasets: [{
+            label: 'Humidity',
+            data: {{ humData }},
+            borderColor: 'rgb(90,90,90)',
+            pointBackgroundColor: 'rgb(90,90,90)',
+          }]
+        }
+      }); 
+    </script>
+    <div class="priority"><canvas id="rainGraph" width="100%" height="17%"></canvas></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"> 
+    </script>
+    <script>
+      var canvas = document.getElementById("rainGraph");
+      var ctx = canvas.getContext("2d");
+      var rainGraph = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: {{ isoData|tojson }},
+          datasets: [{
+            label: 'Rainfall',
+            data: {{ rainData }},
+            borderColor: 'rgb(90,90,90)',
+            pointBackgroundColor: 'rgb(90,90,90)',
+          }]
+        }
+      }); 
+    </script>
+  </body>
+</html>
