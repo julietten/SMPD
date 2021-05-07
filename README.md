@@ -15,15 +15,15 @@ This repository was developed for Case Western Reserve University's ECSE 399 sen
 ## 1. Folders, Files, and Descriptions:
 
 
-**STM32 Code**
+###**STM32 Code**
 
 **device_code.ino:** contains C++ code used for the STM32 to collect the data, connect to The Things Network, and transmit the data
 
-**AWS Lambda**
+###**AWS Lambda**
 
 **lambda_function.py:** contains pPython code used in the Amazon Web Services Lambda function that took the transmission from the AWS MQTT Client and added it to a AWS DynamoDB Table
 
-**Flask**
+###**Flask**
 
 **aws_controller.py:** contains Python code that made functions used to pull the data from the AWS DynamoDB table into arrays of data and sort functions to keep the data in timestamp order
 
