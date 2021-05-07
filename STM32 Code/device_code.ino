@@ -17,9 +17,9 @@
 
 #define DHTTYPE DHT11 //sets dht type as dht11
 
-static const u1_t PROGMEM APPEUI[8]={ 0xAC, 0x26, 0x16, 0x2D, 0x48, 0x2B, 0xC3, 0x1B }; //app eui in litle endian format
-static const u1_t PROGMEM DEVEUI[8]={ 0x5B, 0xEE, 0xF3, 0x1F, 0x80, 0xCA, 0xCB, 0x79 }; //dev eui in little endian format
-static const u1_t PROGMEM APPKEY[16] = { 0xC7, 0x05, 0xBF, 0x51, 0xA1, 0x7A, 0x6F, 0xF2, 0x22, 0x46, 0x10, 0x78, 0xEC, 0x57, 0x12, 0xC4 }; //app key in big endian format
+static const u1_t PROGMEM APPEUI[8]={ 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx }; //app eui in litle endian format
+static const u1_t PROGMEM DEVEUI[8]={ 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx }; //dev eui in little endian format
+static const u1_t PROGMEM APPKEY[16] = { 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx, 0xxx }; //app key in big endian format
 
 void os_getArtEui(u1_t* buf){memcpy_P(buf, APPEUI, 8);}
 void os_getDevEui(u1_t* buf){memcpy_P(buf, DEVEUI, 8);}
@@ -27,7 +27,7 @@ void os_getDevKey(u1_t* buf){memcpy_P(buf, APPKEY, 16);}
 
 CayenneLPP lpp(51); //stores object of cayenneLPP class that encodes data
 static osjob_t sendjob;
-const unsigned TX_INTERVAL = 30; //uplink frequency
+const unsigned TX_INTERVAL = 1200; //uplink frequency
 DHT dht(dhtOut, DHTTYPE); //init dht sensor
 volatile int tips = 0; //stores the number of rainwater tips over the duration of the sleep mode to calculate rainfall
 
@@ -104,12 +104,12 @@ void do_send(osjob_t* job){
     Serial.println("error: won't send");
   }else{
 
-    sleepTips(10000);
+    sleepTips(600000);
     
     float soil_content = dataAvg(1); //stores the average of 3 data collections of soil moisture
     float temp = dataAvg(2); //stores the average of 3 data collections of temperature
     float humidity = dataAvg(3); //stores the average of 3 data collections of humidity
-    float inch_rain_hr = (tips * 1.5 / 16.3871) * 12 * 30; //calculates rain water per hour in inches
+    float inch_rain_hr = (tips * 1.5 / 16.3871) * 6; //calculates rain water per hour in inches
 
     lpp.reset(); //resets so previous payload isn't included in new payload
     
