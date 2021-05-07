@@ -35,22 +35,22 @@ This repository was developed for Case Western Reserve University's ECSE 399 sen
 ## 2. Software Prerequisites:
 
 
-**For the STM32 code:**
+### **For the STM32 code:**
 
 LMIC library, CayenneLPP library, DHT library
 
 
-**For the Flask code:**
+### **For the Flask code:**
 
 Flask, json, datetime, boto3, chart.js
 
 
-**For the AWS Lambda function:**
+### **For the AWS Lambda function:**
 
 boto3, json
 
 
-**Other software configurations:**
+### **Other software configurations:**
 
 For the device to communicate with the Helium console, an account and access keys for the Helium Console is needed and the access keys need to be directly added to the device_code.ino file in little endian and big endian format as directed.
 
