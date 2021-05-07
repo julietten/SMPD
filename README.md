@@ -8,8 +8,8 @@ This repository was developed for Case Western Reserve University's ECSE 399 sen
 
 1. Folders, Files, and Descriptions
 2. Software Prerequisites
-4. Hardware Components
-5. Microcontroller Pinouts
+3. Hardware Components
+4. Microcontroller Pinouts
 
 
 ## 1. Folders, Files, and Descriptions:
@@ -59,4 +59,9 @@ For the data to be sent from the Helium console to the Amazon Web Servies MQTT C
 The AWS Lambda function must be set to trigger from the MQTT Client receiving messages using an IoT Core Rule.
 
 The AWS DynamoDB Table must be given permissions to allow the Lambda function to add data to it.
+
+
+## 3. Hardware Components:
+
+STM32 Blue Pill microcontroller, LoRa radio, capacitive soil moisture sensor, DHT11 temperature and humidity sensor, tipping bucket rainwater gauge using a magnetic switch, 10kOhm pull up resistor for the rainwater gauge, battery holder, and a waterproof case for the device.
 
