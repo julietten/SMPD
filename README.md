@@ -31,7 +31,7 @@
 
 ### **AWS Lambda**
 
-**lambda_function.py:** contains pPython code used in the Amazon Web Services Lambda function that took the transmission from the AWS MQTT Client and added it to a AWS DynamoDB Table
+**lambda_function.py:** contains Python code used in the Amazon Web Services Lambda function that took the transmission from the AWS MQTT Client and added it to a AWS DynamoDB Table
 
 ### **Flask**
 
