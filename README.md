@@ -65,3 +65,19 @@ The AWS DynamoDB Table must be given permissions to allow the Lambda function to
 
 STM32 Blue Pill microcontroller, LoRa radio, capacitive soil moisture sensor, DHT11 temperature and humidity sensor, tipping bucket rainwater gauge using a magnetic switch, 10kOhm pull up resistor for the rainwater gauge, battery holder, and a waterproof case for the device.
 
+
+## 4. Microcontroller Pinouts:
+
+Based on the pins of the STM32 Blue Pill
+
+### **LoRa radio connections:**
+SCK to PA5, MISO to PA6, MOSI to PA7, NSS to PA4, RST to PB0, G0 to PA3, G1 to PB5, GND to GND, VIN to 3.3V
+
+### **Capacitive soil moisture sensor connections:**
+AOUT to PB1, GND to GND, VCC to 3.3V
+
+### **DHT11 temperature and humidity sensor connections:**
+DATA to PA0, GND to GND, VCC to 5V
+
+### **Rainwater gauge magnetic switch connections:**
+Data pin to PA1 with a 10kOhm pull up resistor, GND to GND
