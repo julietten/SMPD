@@ -3,6 +3,8 @@
 ### Soil Moisture Profiling Device - the code for a device that collects soil moisture content, temperature, humidity, and rainfall that is transmitted over LoRaWAN to AWS to a Flask application displaying graphs of the data
 ### This repository was developed for Case Western Reserve University's ECSE 399 senior project course. This project was developed by Juliette Naugle.
 
+---
+
 ## Device:
 
 ![20210419_145709_HDR_2](https://user-images.githubusercontent.com/9967479/117495410-93118280-af43-11eb-9d45-81a6962239f3.jpg)
@@ -12,6 +14,7 @@
 
 ![flask_app_april19](https://user-images.githubusercontent.com/9967479/117495028-21d1cf80-af43-11eb-892d-0b71392cb5dd.JPG)
 
+---
 
 ## Contents:
 
@@ -21,6 +24,7 @@
 3. Hardware Components
 4. Microcontroller Pinouts
 
+---
 
 ## 1. Folders, Files, and Descriptions:
 
@@ -41,6 +45,7 @@
 
 **templates/home.html:** contains the HTML code used to create the web pages with Chart.js code used to make the graphs for each data collected
 
+---
 
 ## 2. Software Prerequisites:
 
@@ -70,11 +75,13 @@ The AWS Lambda function must be set to trigger from the MQTT Client receiving me
 
 The AWS DynamoDB Table must be given permissions to allow the Lambda function to add data to it.
 
+---
 
 ## 3. Hardware Components:
 
 STM32 Blue Pill microcontroller, LoRa radio, capacitive soil moisture sensor, DHT11 temperature and humidity sensor, tipping bucket rainwater gauge using a magnetic switch, 10 kOhm pull up resistor for the rainwater gauge, battery holder, and a waterproof case for the device.
 
+---
 
 ## 4. Microcontroller Pinouts:
 
